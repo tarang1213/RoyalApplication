@@ -12,7 +12,7 @@
         android:layout_width="98dp"
         android:layout_height="98dp"
         android:id="@+id/img_DP"
-        app:civ_border_color="#8BC34A"
+        app:civ_border_color="#E91E63"
         app:civ_border_width="4dp"
         android:layout_gravity="center"
         android:src="@drawable/ic_home" />

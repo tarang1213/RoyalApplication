@@ -1,11 +1,16 @@
 package com.royalapplication;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     EditText edtEmail;
     Button btnLogin;
     ImageView imgLogo;
-    Button btnSend;
+    Button btnFp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,14 +29,33 @@ public class MainActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edt_email);
         btnLogin = findViewById(R.id.btn_login);
         imgLogo  = findViewById(R.id.img_logo);
-        btnSend = findViewById(R.id.btn_send);
+        btnFp = findViewById(R.id.btn_fp);
 
-        btnSend.setOnClickListener(new View.OnClickListener() {
+        btnFp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("https://www.google.com/"));
-                startActivity(i);
+
+                LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View fpView = layoutInflater.inflate(R.layout.raw_fp, null);
+                EditText edtFPEmail = fpView.findViewById(R.id.edt_fp);
+                Button btnSubmit = fpView.findViewById(R.id.btn_submit);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.setView(fpView);
+                alertDialog.show();
+
+                btnSubmit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this, "Submit", Toast.LENGTH_SHORT).show();
+
+                        if (alertDialog.isShowing()) {
+
+                            alertDialog.dismiss();
+                        }
+                    }
+                });
             }
         });
 

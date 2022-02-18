@@ -15,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoyalApplication">
         <activity
+            android:name=".NavHomeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_nav_home"
+            android:theme="@style/Theme.RoyalApplication.NoActionBar" />
+        <activity
             android:name=".AlertActivity"
             android:exported="false" />
         <activity

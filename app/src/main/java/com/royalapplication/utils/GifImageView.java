@@ -1,4 +1,4 @@
-package com.royalapplication;
+package com.royalapplication.utils;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -15,24 +15,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoyalApplication">
         <activity
-            android:name=".NavHomeActivity"
+            android:name=".activity.NavHomeActivity"
             android:exported="false"
             android:label="@string/title_activity_nav_home"
             android:theme="@style/Theme.RoyalApplication.NoActionBar" />
         <activity
-            android:name=".AlertActivity"
+            android:name=".activity.AlertActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activity.ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

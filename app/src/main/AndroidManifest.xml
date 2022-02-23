@@ -15,6 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoyalApplication">
         <activity
+            android:name=".activity.WebviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.tabActivity"
+            android:exported="false"
+            android:label="@string/title_activity_tab"
+            android:theme="@style/Theme.RoyalApplication.NoActionBar" />
+        <activity
             android:name=".activity.NavHomeActivity"
             android:exported="false"
             android:label="@string/title_activity_nav_home"

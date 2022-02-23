@@ -17,10 +17,12 @@ import android.widget.Toast;
 import com.royalapplication.R;
 
 public class MainActivity extends AppCompatActivity {
-    EditText edtEmail;
+    EditText edtEmail,edtPassword;
     Button btnLogin;
     ImageView imgLogo;
     Button btnFp;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         imgLogo  = findViewById(R.id.img_logo);
         btnFp = findViewById(R.id.btn_fp);
+        edtPassword=findViewById(R.id.edt_password);
 
         btnFp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,9 +67,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String strEmail = edtEmail.getText().toString();
+                String strPassword=edtPassword.getText().toString();
                 if (strEmail.equals("")){
-                    Toast.makeText(MainActivity.this, "Enter Email ID ", Toast.LENGTH_SHORT).show();
-                }else {
+                    edtEmail.setError("Enter Email ID");
+//                    Toast.makeText(MainActivity.this, "Enter Email ID ", Toast.LENGTH_SHORT).show();
+                }else if(!strEmail.matches(emailPattern)){
+                    edtEmail.setError("Enter valid Email ID");
+//                    Toast.makeText(MainActivity.this, "Enter valid Email ID ", Toast.LENGTH_SHORT).show();
+                }else if(strPassword.equals("")){
+                    edtPassword.setError("Enter password");
+//                    Toast.makeText(MainActivity.this, "Enter password ", Toast.LENGTH_SHORT).show();
+                }
+                else if(strPassword.length()<8){
+                    edtPassword.setError("Enter valid password");
+//                    Toast.makeText(MainActivity.this, "Enter valid password ", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     Toast.makeText(MainActivity.this, "Email ID is  "+strEmail, Toast.LENGTH_SHORT).show();
                     imgLogo.setImageResource(R.drawable.icon_2);
 
